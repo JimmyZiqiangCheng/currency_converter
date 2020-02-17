@@ -1,0 +1,32 @@
+@import './Font.css';
+
+body {
+  margin:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Architects Daughter', cursive;
+  margin:0;
+  margin-bottom: 2rem;
+}
+
+.input {
+  border: 1px solid rgb(109, 109, 109);
+  border-radius: 0.2em;
+  margin-right: 0.5em;
+  padding: 0.25em;
+  width: 7em;
+}
+
+.devider{
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  margin: 0.5rem;
+}
+
+
