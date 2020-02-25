@@ -1,6 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
 import CurrencyRow from './CurrencyRow';
+import NavBar from "./components/NavBar";
+import { useAuth0 } from "./react-auth0-spa";
+
+import { Router, Route, Switch } from "react-router-dom";
+import Profile from "./views/Profile";
+import Currency from "./views/Currency";
+import history from "./utils/history";
+import Loading from "./components/Loading";
+
+import './App.css';
 
 const BASE_URL = 'https://api.exchangeratesapi.io/latest';
 
@@ -11,6 +20,8 @@ function App() {
   const [exchangeRate, setExchangeRate] = useState();
   const [amount, setAmount] = useState(1);
   const [IsFromCurrencyChange, SetIsFromCurrencyChange] = useState(true);
+
+  const { loading } = useAuth0();
 
   let toAmount, fromAmount;
   if (IsFromCurrencyChange){
@@ -59,27 +70,39 @@ function App() {
     SetIsFromCurrencyChange(false);
   }
 
+  if (loading) {
+    return <Loading/>;
+  }
 
   return (
-    <div>
-      <h1>JimmyCheng's Currency Converter</h1>
-      <div class="devider">from: </div>
-      <CurrencyRow 
-        currencyOptions = {currencyOptions}
-        selectedCurrency = {fromCurrency}
-        onChangeAmount = {handleFromAmountChange}
-        onChangeCurrency = {event => setFromCurrency(event.target.value)}
-        amount = {fromAmount}
-      />
-      <br/>
-      <div class="devider">to:</div>
-      <CurrencyRow 
-        currencyOptions = {currencyOptions}
-        selectedCurrency = {toCurrency}
-        onChangeAmount = {handleToAmountChange}
-        onChangeCurrency = {event => setToCurrency(event.target.value)}
-        amount = {toAmount}
-      />
+    <div className="app">
+      <Router history={history}>
+        <h1>JimmyCheng's Currency Converter</h1>
+        <div className="devider">from: </div>
+        <CurrencyRow 
+          currencyOptions = {currencyOptions}
+          selectedCurrency = {fromCurrency}
+          onChangeAmount = {handleFromAmountChange}
+          onChangeCurrency = {event => setFromCurrency(event.target.value)}
+          amount = {fromAmount}
+        />
+        <br/>
+        <div className="devider">to:</div>
+        <CurrencyRow 
+          currencyOptions = {currencyOptions}
+          selectedCurrency = {toCurrency}
+          onChangeAmount = {handleToAmountChange}
+          onChangeCurrency = {event => setToCurrency(event.target.value)}
+          amount = {toAmount}
+        />
+        <div>
+          <NavBar />
+        </div>
+        <Switch>
+          <Route path="/" exact />
+          <Route path="/profile" component={Profile} />
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -29,4 +29,13 @@ h1 {
   margin: 0.5rem;
 }
 
+.navbar{
+  margin:2rem;
+}
+
+.navBarList{
+  margin:2rem;
+  list-style-type: none;
+}
+
 
