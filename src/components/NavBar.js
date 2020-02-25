@@ -1,6 +1,6 @@
 // src/components/NavBar.js
 
-import React from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { Link } from "react-router-dom";
 
@@ -18,10 +18,16 @@ const NavBar = () => {
       {isAuthenticated && (
         <ul className="navBarList">
           <li>
-            <Link to="/">Back Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to="/profile">My Profile</Link>
+            <Link to="/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/currency">Currency Converter</Link>
+          </li>
+          <li>
+            <Link to="/weather">Weather</Link>
           </li>
         </ul>
       )}

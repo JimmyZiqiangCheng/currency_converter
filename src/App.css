@@ -38,4 +38,7 @@ h1 {
   list-style-type: none;
 }
 
+.avatar {
+  border-radius: 50%;
+}
 
