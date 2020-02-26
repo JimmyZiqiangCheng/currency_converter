@@ -7,12 +7,14 @@ import history from "./utils/history";
 import Loading from "./components/Loading";
 import PrivateRoute from './components/PrivateRoute';
 
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Landing from "./views/Landing";
 import Profile from "./views/Profile";
 import Home from "./views/Home";
 import Currency from "./views/Currency";
 import Weather from "./views/Weather";
+
 
 import './App.css';
 
@@ -30,13 +32,14 @@ function App() {
         <NavBar />
         <Container className="mainContent">
           <Switch>
-            <Route exact path="/" component={Landing} />
+            <Route path="/" exact component={Landing} />
             <PrivateRoute path="/home" component={Home} />
             <PrivateRoute path="/profile" component={Profile} />
             <PrivateRoute path="/currency" component={Currency} />
             <PrivateRoute path="/weather" component={Weather} />
           </Switch>
-      </Container>
+       </Container>
+       <Footer/>
       </div>
     </Router>
   );

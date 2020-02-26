@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { Link } from "react-router-dom";
+import { NavLink as RouterNavLink } from "react-router-dom";
 
 import {
   Collapse,
@@ -24,7 +25,6 @@ import {
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   const logoutWithRedirect = () =>
@@ -33,23 +33,39 @@ const NavBar = () => {
     });
   
   return (
-    <div className="navbar">
+    <div className="nav-container">
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand className="logo" href="/">Jimmys</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <NavLink
+                  id="logo"
+                  tag={RouterNavLink}
+                  to="/"
+                  exact
+                  activeClassName="router-link-exact-active"
+                >
+                  Jimmys
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (
-                <Nav className="mr-auto" navbar>
-                  <NavItem>
-                    <Button variant="outline-info" color = "primary" onClick={() => loginWithRedirect({})}>Log In</Button>
-                  </NavItem>
-                </Nav>
+                <NavItem>
+                  <Button
+                    id="qsLoginBtn"
+                    color="primary"
+                    className="btn-margin"
+                    onClick={() => loginWithRedirect({})}
+                  >
+                    Log in
+                  </Button>
+                </NavItem>
               )}
-
-
               {isAuthenticated && (
-                <Nav navbar>
+                <Nav className="d-none d-md-block" navbar>
                   <NavItem>
                     <NavLink tag={Link} to="/home">Home</NavLink>
                   </NavItem>
@@ -63,11 +79,25 @@ const NavBar = () => {
                     <NavLink tag={Link} to="/weather">Weather</NavLink>
                   </NavItem>
                   <NavItem>
-                    <Button variant="outline-info" color = "primary" onClick={() => logout()}>Log out</Button>
+                    <Button variant="outline-info" color = "primary" onClick={() => logoutWithRedirect()}>Log out</Button>
                   </NavItem>
                 </Nav>
               )}
-
+              {!isAuthenticated && (
+                <Nav className="d-md-none" navbar>
+                  <NavItem>
+                    <Button
+                      id="qsLoginBtn"
+                      color="primary"
+                      block
+                      onClick={() => loginWithRedirect({})}
+                    >
+                      Log in
+                    </Button>
+                  </NavItem>
+                </Nav>
+              )}
+            </Nav>
           </Collapse>
         </Container>
       </Navbar>
