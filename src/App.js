@@ -26,9 +26,9 @@ function App() {
 
   return (
     <Router history={history}>
-      <div className="app">
+      <div id="app" className="d-flex flex-column h-100">
         <NavBar />
-        <Container className="flex-grow-1 mt-5">
+        <Container className="mainContent">
           <Switch>
             <Route exact path="/" component={Landing} />
             <PrivateRoute path="/home" component={Home} />
@@ -36,7 +36,7 @@ function App() {
             <PrivateRoute path="/currency" component={Currency} />
             <PrivateRoute path="/weather" component={Weather} />
           </Switch>
-        </Container>
+      </Container>
       </div>
     </Router>
   );

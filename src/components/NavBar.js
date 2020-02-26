@@ -4,33 +4,73 @@ import React, { useState } from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+import {
+  Collapse,
+  Container,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Button,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+} from "reactstrap";
 
+const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  const logoutWithRedirect = () =>
+    logout({
+      returnTo: window.location.origin
+    });
+  
   return (
     <div className="navbar">
-      {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>Log in for more contents</button>
-      )}
+      <Navbar color="light" light expand="md">
+        <Container>
+          <NavbarBrand className="logo" href="/">Jimmys</NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+              {!isAuthenticated && (
+                <Nav className="mr-auto" navbar>
+                  <NavItem>
+                    <Button variant="outline-info" color = "primary" onClick={() => loginWithRedirect({})}>Log In</Button>
+                  </NavItem>
+                </Nav>
+              )}
 
-      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
 
-      {isAuthenticated && (
-        <ul className="navBarList">
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li>
-            <Link to="/currency">Currency Converter</Link>
-          </li>
-          <li>
-            <Link to="/weather">Weather</Link>
-          </li>
-        </ul>
-      )}
+              {isAuthenticated && (
+                <Nav navbar>
+                  <NavItem>
+                    <NavLink tag={Link} to="/home">Home</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink tag={Link} to="/profile">Profile</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink tag={Link} to="/currency">Currency</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink tag={Link} to="/weather">Weather</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <Button variant="outline-info" color = "primary" onClick={() => logout()}>Log out</Button>
+                  </NavItem>
+                </Nav>
+              )}
+
+          </Collapse>
+        </Container>
+      </Navbar>
     </div>
   );
 };

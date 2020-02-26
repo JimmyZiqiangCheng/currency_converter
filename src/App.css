@@ -1,13 +1,18 @@
 @import './Font.css';
-
-body {
+.mainContent {
   margin:0;
-  display: flex;
+  padding-top: 10em;
   justify-content: center;
   align-items: center;
   min-height: 50vh;
   text-align: center;
 }
+
+.navbar{
+  width: 100%;
+}
+
+
 
 h1 {
   font-family: 'Architects Daughter', cursive;
@@ -29,16 +34,23 @@ h1 {
   margin: 0.5rem;
 }
 
-.navbar{
-  margin:2rem;
-}
-
-.navBarList{
-  margin:2rem;
-  list-style-type: none;
-}
-
 .avatar {
   border-radius: 50%;
 }
 
+.logo {
+  font-family: 'Lobster';
+}
+
+.spinner {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
