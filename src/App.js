@@ -14,7 +14,7 @@ import Profile from "./views/Profile";
 import Home from "./views/Home";
 import Currency from "./views/Currency";
 import Weather from "./views/Weather";
-
+import Jumbotron from "./components/Jumbotron";
 
 import './App.css';
 
@@ -30,6 +30,7 @@ function App() {
     <Router history={history}>
       <div id="app" className="d-flex flex-column h-100">
         <Navbar />
+        <Jumbotron/>
         <Container className="mainContent">
           <Switch>
             <Route path="/" exact component={Landing} />

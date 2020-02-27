@@ -13,12 +13,23 @@ body {
   padding: 0;
 }
 
+.navigationBar{
+  background-color: #2C2B26;
+}
 
+.jumbo{
+  background: url(assets/jumbotronImg.png) no-repeat fixed;
+}
 
 h1 {
   font-family: 'Architects Daughter', cursive;
   margin:0;
   margin-bottom: 2rem;
+}
+
+.overlay{
+  text-align: center;
+  color: white;
 }
 
 .input {
@@ -41,14 +52,18 @@ h1 {
 
 #logo {
   font-family: 'Lobster';
-  font-weight: bold;
   font-size: x-large;
   color: white;
   margin-left: 5rem;
 }
 
+.linkText {
+  color: rgb(179, 179, 179);
+}
+
 .logButton {
   margin-right: 5rem;
+  margin-left: 3rem;
 }
 
 .spinner {
