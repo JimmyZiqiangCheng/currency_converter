@@ -43,7 +43,12 @@ h1 {
   font-family: 'Lobster';
   font-weight: bold;
   font-size: x-large;
-  color: rgb(0, 0, 0);
+  color: white;
+  margin-left: 5rem;
+}
+
+.logButton {
+  margin-right: 5rem;
 }
 
 .spinner {
