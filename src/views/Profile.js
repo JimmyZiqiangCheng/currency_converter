@@ -10,11 +10,11 @@ const Profile = () => {
   }
 
   return (
-    <>
-      <img src={user.picture} alt="profile" className="avatar" />
+    <div className="profileText">
+      <img src={user.picture} alt="profile" className="avatar" width="200"/>
       <h2>{user.name}</h2>
       <p>{user.email}</p>
-    </>
+    </div>
   );
 };
 

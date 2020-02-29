@@ -2,12 +2,12 @@
 
 import React from "react";
 import { useAuth0 } from "../react-auth0-spa";
-import { NavLink as RouterNavLink, Link} from "react-router-dom";
+import { NavLink as Link} from "react-router-dom";
 import { Nav, Navbar, Button } from "react-bootstrap";
 
 
 const NavigationBar = () => {
-  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const logoutWithRedirect = () =>
     logout({
       returnTo: window.location.origin

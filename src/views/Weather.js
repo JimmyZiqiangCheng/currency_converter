@@ -3,7 +3,8 @@ import React, {useEffect, useState} from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import Loading from "../components/Loading";
 import WeatherCard from "../components/WeatherCard";
-import { WiRain } from "react-icons/wi";
+import WeatherForm from "../components/WeatherForm";
+
 
 const API_Key = "94fb7ee2c7503834b6f980b1f6f2936c";
 const BASE_URL = `http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_Key}`
@@ -43,6 +44,7 @@ const Weather = () => {
   return (
     <>
     <h1 className="title">JimmyCheng's Weather Report</h1>
+    <WeatherForm />
     <WeatherCard
       cityName = {cityName}
       countryName = {countryName}

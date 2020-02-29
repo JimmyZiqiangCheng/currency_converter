@@ -9,8 +9,7 @@ import { WiSnow } from "react-icons/wi";
 import { WiFog } from "react-icons/wi";
 import { WiThunderstorm } from "react-icons/wi";
 
-
-export default function WeatherCard(props) {
+const WeatherCard = props => {
   const {
     cityName,
     countryName,
@@ -44,3 +43,5 @@ export default function WeatherCard(props) {
     </div>
   );
 }
+
+export default WeatherCard;
