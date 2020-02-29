@@ -21,10 +21,14 @@ body {
   background: url(assets/jumbotronImg.png) no-repeat fixed;
 }
 
-h1 {
+.title {
   font-family: 'Architects Daughter', cursive;
   margin:0;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.jumboTitle{
+  font-family: 'Roboto', sans-serif;
 }
 
 .overlay{
@@ -46,6 +50,16 @@ h1 {
   margin: 0.5rem;
 }
 
+.weatherCard {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.currentWeather{
+  margin-bottom: 1rem;
+}
 .avatar {
   border-radius: 50%;
 }
@@ -54,7 +68,11 @@ h1 {
   font-family: 'Lobster';
   font-size: x-large;
   color: white;
-  margin-left: 5rem;
+  margin-left: 10rem;
+}
+
+#lastLink {
+  margin-right: 5rem;
 }
 
 .linkText {
@@ -62,8 +80,7 @@ h1 {
 }
 
 .logButton {
-  margin-right: 5rem;
-  margin-left: 3rem;
+  margin-right: 10rem;
 }
 
 .spinner {

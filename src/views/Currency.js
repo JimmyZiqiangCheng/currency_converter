@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import CurrencyRow from '../components/CurrencyRow';
+import { useAuth0 } from "../react-auth0-spa";
+import Loading from "../components/Loading";
 
 const BASE_URL = 'https://api.exchangeratesapi.io/latest';
 
 const Currency = () => {
+
   const [currencyOptions, setCurrencyOptions] = useState([]);
   const [fromCurrency, setFromCurrency] = useState();
   const [toCurrency, setToCurrency] = useState();
@@ -39,7 +42,7 @@ const Currency = () => {
     if (fromCurrency !=null && toCurrency !=null){
       if (fromCurrency === toCurrency){
         setExchangeRate(1);
-        return;
+        return; 
       }
       fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
         .then(res => res.json())
@@ -55,6 +58,12 @@ const Currency = () => {
   function handleToAmountChange(event) {
     setAmount(event.target.value);
     SetIsFromCurrencyChange(false);
+  }
+
+  const { loading, user } = useAuth0();
+
+  if (loading || !user) {
+    return <Loading/>;
   }
 
   return (

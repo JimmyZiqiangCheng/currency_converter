@@ -14,7 +14,7 @@ const NavigationBar = () => {
     });
 
   return(
-    <Navbar className="navigationBar" variant="dark" expand='md'>
+    <Navbar className="navigationBar" variant="dark" expand='lg'>
     <Navbar.Brand id = "logo" as={Link} to="/"> JimmyChengs </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
     <Navbar.Collapse id="basic-navbar-nav">
@@ -32,7 +32,7 @@ const NavigationBar = () => {
           <Nav.Link className="linkText" as={Link} to="/home">Home</Nav.Link>
           <Nav.Link className="linkText" as={Link} to="/profile">Profile</Nav.Link>
           <Nav.Link className="linkText" as={Link} to="/currency">Currency Converter</Nav.Link>
-          <Nav.Link className="linkText" as={Link} to="/weather">Weather</Nav.Link>
+          <Nav.Link className="linkText" id="lastLink" as={Link} to="/weather">Weather</Nav.Link>
           <Nav.Item>
           <Button className="logButton" variant="outline-light" onClick={()=>logoutWithRedirect()}>
             Log Out

@@ -6,7 +6,7 @@ const Jumbotron = () => (
   <Jumbo fluid className="jumbo">
     <div className = "overlay"> 
       <Container>
-        <h1 className="jumboTitle"> Welcome Home </h1>
+        <h1 className="jumboTitle"> Welcome </h1>
       </Container>
     </div>
   </Jumbo>

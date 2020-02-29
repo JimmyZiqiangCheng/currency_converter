@@ -4,7 +4,6 @@ import Loading from "../components/Loading";
 
 const Home = () => {
   const { loading, user } = useAuth0();
-  console.log(user.name);
 
   if (loading || !user) {
     return <Loading/>;

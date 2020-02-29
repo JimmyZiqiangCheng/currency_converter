@@ -18,5 +18,5 @@ export default function CurrencyRow(props) {
         ))}
       </select>
     </div>
-  )
+  );
 }
