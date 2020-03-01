@@ -2,34 +2,46 @@
 
 .mainContent {
   margin:0;
-  padding-top: 10em;
+  padding-top: 5em;
   justify-content: center;
   align-items: center;
   min-height: 50vh;
   text-align: center;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .navigationBar{
   background-color: #2C2B26;
+}
+
+#logo {
+  font-family: 'Lobster';
+  font-size: x-large;
+  color: white;
+  margin-left: 5rem;
+}
+
+.logButton {
+  margin-right: 5rem;
+  margin-left: 5rem;
 }
 
 .jumbo{
   background: url(assets/jumbotronImg.png) no-repeat fixed;
 }
 
-.title {
-  font-family: 'Architects Daughter', cursive;
-  margin:0;
-  margin-bottom: 3rem;
-}
 
 .jumboText{
   font-family: 'Spartan';
+} 
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-family: 'Architects Daughter', cursive;
+  margin-bottom: 3rem;
 }
 
 .overlay{
@@ -41,12 +53,12 @@ body {
   font-family: 'Spartan';
 }
 
-.input {
-  border: 1px solid rgb(109, 109, 109);
+#amountInput {
+  border: 1px solid rgb(216, 216, 216);
   border-radius: 0.2em;
   margin-right: 0.5em;
   padding: 0.25em;
-  width: 7em;
+  width: 10em;
 }
 
 .devider{
@@ -60,6 +72,16 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Roboto', sans-serif;
+  margin-top: 3rem;
+}
+
+.weatherForm{
+  width: 50%;
+  display: inline-block;
+}
+
+.homeDeck{
+  display: inline-block;
 }
 
 .currentWeather{
@@ -70,23 +92,12 @@ body {
   margin-bottom: 5rem;
 }
 
-#logo {
-  font-family: 'Lobster';
-  font-size: x-large;
-  color: white;
-  margin-left: 10rem;
-}
-
 #lastLink {
   margin-right: 5rem;
 }
 
 .linkText {
   color: rgb(179, 179, 179);
-}
-
-.logButton {
-  margin-right: 10rem;
 }
 
 .spinner {
@@ -100,4 +111,14 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+footer {
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  font-size: small;
+  font-family: 'Spartan';
+  background-color: rgb(54, 59, 56);
+  color: white;
 }

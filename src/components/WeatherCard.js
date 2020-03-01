@@ -27,12 +27,12 @@ const WeatherCard = props => {
           <Card.Title>{cityName}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{countryName}</Card.Subtitle>
           <Card.Text>
-            {weatherId<=200 && <WiDaySunny size={120}/>}
+            {weatherId===800 && <WiDaySunny size={120}/>}
             {weatherId>200 && weatherId<=300 && <WiThunderstorm size={120}/>}
             {weatherId>300 && weatherId<=400 && <WiShowers size={120}/>}
             {weatherId>400 && weatherId<=600 && <WiRain size={120}/>}
             {weatherId>600 && weatherId<=700 && <WiSnow size={120}/>}
-            {weatherId>700 && weatherId<=800 && <WiFog size={120}/>}
+            {weatherId>700 && weatherId<800 && <WiFog size={120}/>}
             {weatherId>800 && <WiCloud size={120}/>}
             <h4 className="currentWeather">current: {currentTemperature}</h4>
             <p>high: {maxTemperature},   low: {minTemperature} </p>

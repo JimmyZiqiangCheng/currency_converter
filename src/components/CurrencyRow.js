@@ -11,8 +11,8 @@ const CurrencyRow = props => {
   
   return (
     <div>
-      <input className='input' type='number' placeholder='0.00' value={amount} onChange={onChangeAmount}/>
-      <select className='select' value={selected} onChange={onChangeCurrency}>
+      <input id='amountInput' type='number' placeholder='0.00' value={amount} onChange={onChangeAmount}/>
+      <select id='currencySelect' value={selected} onChange={onChangeCurrency}>
         {options.map(option => (
           <option key={option} value={option}>{option}</option>
         ))}
