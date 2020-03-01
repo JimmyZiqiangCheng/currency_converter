@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card} from "react-bootstrap";
+import {Card, Alert} from "react-bootstrap";
 
 import { WiCloud } from "react-icons/wi";
 import { WiDaySunny } from "react-icons/wi";
@@ -17,9 +17,16 @@ const WeatherCard = props => {
     weatherDescription,
     maxTemperature,
     minTemperature,
-    weatherId
+    weatherId,
+    error
   } = props
-  console.log(props)
+  if (error) {
+    return (
+      <Alert variant='danger'>
+        Please type in a correct city and country combo such as "Tokyo, JP"
+      </Alert>
+    );
+  }
   return (
     <div className="weatherCard">
       <Card style={{ width: '28rem', border: 0}}>

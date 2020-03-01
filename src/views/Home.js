@@ -3,6 +3,8 @@ import { useAuth0 } from "../react-auth0-spa";
 import Loading from "../components/Loading";
 import HomeCard from "../components/HomeCard";
 import {CardDeck} from "react-bootstrap";
+import imgCurrency from "../assets/coin.jpg";
+import imgWeather from "../assets/thunder.jpg";
 
 const Home = () => {
   const { loading, user } = useAuth0();
@@ -11,26 +13,24 @@ const Home = () => {
     return <Loading/>;
   }
 
-  const imgCurrency = "../assets/coin.jpg";
-  const imgWeather = "../assets/thunder.jpg";
-
   return (
     <>
-      <h1 className="title">This is Your Home, </h1>
-      <h2 className="title">{user.name}</h2>
+      <h1 className="title">Where everything begins ... </h1>
       <div className="homeDeck" >
         <CardDeck style={{ width: '46rem' }}>
           <HomeCard
             imgsrc = {imgCurrency}
             title = "Currency Converter"
-            content = "Convert any currency to your liking..."
+            content = "Convert any currency with up-to-date exchange rates ..."
             buttonText = "Go"
+            dest="/currency"
           />
           <HomeCard
             imgsrc = {imgWeather}
             title = "Weather Reporter"
-            content = "Check weather information anywhere in the world..."
+            content = "Check weather information anywhere in the world ..."
             buttonText = "Go"
+            dest="/weather"
           />
         </CardDeck>
       </div>

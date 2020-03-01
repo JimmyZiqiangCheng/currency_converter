@@ -1,19 +1,38 @@
 import React from 'react';
-import {Form, Col, Row, Button} from 'react-bootstrap';
+import {Form, Col, Button} from 'react-bootstrap';
 
 
 const WeatherForm = props =>{
+  const {
+    currentCityName,
+    currentCountryName,
+    handleSubmit,
+    handleCityChange,
+    handleCountryChange,
+  } = props
 
   return(
     <div>
-      <Form className="weatherForm">
+      <Form className="weatherForm" onSubmit={handleSubmit}>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridCity">
-            <Form.Control placeholder="City name"/>
+            <Form.Control 
+              type="text"
+              name="city"
+              placeholder="City name"
+              value={currentCityName}
+              onChange={handleCityChange}
+            />
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridCity">
-            <Form.Control placeholder="Country name"/>
+            <Form.Control 
+              type="text"
+              name="country"
+              placeholder="Country name"
+              value={currentCountryName}
+              onChange={handleCountryChange}
+            />
           </Form.Group>
         </Form.Row>
 

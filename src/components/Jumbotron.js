@@ -14,7 +14,7 @@ const Jumbotron = () => {
             <h1 className="jumboText"> Please Log In</h1>
           )}
           {user && (
-            <h1 className="jumboText"> Welcome, {user.name}</h1>
+            <h1 className="jumboText"> Greetings, {user.name}</h1>
           )}
       </div>
     </Jumbo>

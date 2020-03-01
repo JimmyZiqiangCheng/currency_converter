@@ -50,12 +50,12 @@ const Currency = () => {
     }
   },[fromCurrency, toCurrency]);
 
-  function handleFromAmountChange(event) {
+  const handleFromAmountChange = event => {
     setAmount(event.target.value);
     SetIsFromCurrencyChange(true);
   }
 
-  function handleToAmountChange(event) {
+  const handleToAmountChange = event => {
     setAmount(event.target.value);
     SetIsFromCurrencyChange(false);
   }

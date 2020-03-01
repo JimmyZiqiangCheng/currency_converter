@@ -31,8 +31,8 @@ const NavigationBar = () => {
         <Nav className="ml-auto">
           <Nav.Link className="linkText" as={Link} to="/home">Home</Nav.Link>
           <Nav.Link className="linkText" as={Link} to="/profile">Profile</Nav.Link>
-          <Nav.Link className="linkText" as={Link} to="/currency">Currency Converter</Nav.Link>
-          <Nav.Link className="linkText" id="lastLink" as={Link} to="/weather">Weather</Nav.Link>
+          <Nav.Link className="linkText" as={Link} to="/currency">Currency</Nav.Link>
+          <Nav.Link className="linkText" as={Link} to="/weather">Weather</Nav.Link>
           <Nav.Item>
           <Button className="logButton" variant="outline-light" onClick={()=>logoutWithRedirect()}>
             Log Out
