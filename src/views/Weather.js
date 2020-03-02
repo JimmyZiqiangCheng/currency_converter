@@ -25,7 +25,7 @@ const Weather = () => {
   const [error, setError] = useState(false);
 
 
-  const toCelsius = temp => Math.floor(temp - 273.15);
+  const toCelsius = temp => Math.round(temp - 273.15);
 
   useEffect(() => {
     fetch(SAMPLE_URL)
