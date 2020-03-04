@@ -43,19 +43,22 @@ const Weather = () => {
   },[]);
 
   useEffect(() => {
-    if(cityName.length!==0 && countryName.length!==0 && firstTime===true){
-      fetch(`${BASE_URL}?q=${currentCity},${currentCountry}&appid=${API_Key}`)
-        .then(res => res.json())
-        .then(data => {
-          setWeatherDescription(data.weather[0].description);
-          setCurrentTemperature(toCelsius(data.main.temp));
-          setMaxTemperature(toCelsius(data.main.temp_max));
-          setMinTemperature(toCelsius(data.main.temp_min));
-          setWeatherId(data.weather[0].id);
-          setError(false);
-        })
-        .catch(error => window.alert("Please type in a valid city and country combo ... "))
-    }
+    try{
+      if(cityName.length!==0 && countryName.length!==0 && firstTime===true){
+        fetch(`${BASE_URL}?q=${currentCity},${currentCountry}&appid=${API_Key}`)
+          .then(res => res.json())
+          .then(data => {
+            setWeatherDescription(data.weather[0].description);
+            setCurrentTemperature(toCelsius(data.main.temp));
+            setMaxTemperature(toCelsius(data.main.temp_max));
+            setMinTemperature(toCelsius(data.main.temp_min));
+            setWeatherId(data.weather[0].id);
+            setError(false);
+          })
+        }
+      }catch(err){
+        setError(true);
+      }
   },[cityName, countryName]);
 
   const { loading, user } = useAuth0();
