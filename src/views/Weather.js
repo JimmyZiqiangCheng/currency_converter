@@ -43,7 +43,6 @@ const Weather = () => {
   },[]);
 
   useEffect(() => {
-    try{
       if(cityName.length!==0 && countryName.length!==0 && firstTime===true){
         fetch(`${BASE_URL}?q=${currentCity},${currentCountry}&appid=${API_Key}`)
           .then(res => res.json())
@@ -55,10 +54,11 @@ const Weather = () => {
             setWeatherId(data.weather[0].id);
             setError(false);
           })
+          .catch(err => {
+            console.log(err);
+            setError(true);
+          })
         }
-      }catch(err){
-        setError(true);
-      }
   },[cityName, countryName]);
 
   const { loading, user } = useAuth0();
