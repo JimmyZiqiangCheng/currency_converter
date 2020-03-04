@@ -8,6 +8,7 @@ import imgWeather from "../assets/thunder.jpg";
 
 const Home = () => {
   const { loading, user } = useAuth0();
+  console.log(user);
 
   if (loading || !user) {
     return <Loading/>;

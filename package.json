@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "express": "^4.16.3",
     "express-favicon": "^2.0.1",
+    "mongoose": "^5.9.3",
     "path": "^0.12.7",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
@@ -42,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.2"
   }
 }
