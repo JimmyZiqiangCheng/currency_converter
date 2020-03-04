@@ -7,8 +7,8 @@ import WeatherForm from "../components/WeatherForm";
 
 
 const API_Key = "94fb7ee2c7503834b6f980b1f6f2936c";
-const SAMPLE_URL = `http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_Key}`;
-const BASE_URL = "http://api.openweathermap.org/data/2.5/weather";
+const SAMPLE_URL = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_Key}`;
+const BASE_URL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
 
 const Weather = () => {
 
