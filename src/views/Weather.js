@@ -38,7 +38,14 @@ const Weather = () => {
   useEffect(() => {
     if (cityName.length!=0 && countryName.length!=0){
       fetch(`${BASE_URL}?q=${currentCity},${currentCountry}&appid=${API_Key}`)
-        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          if(!res.ok){
+            setError(true);
+            return;
+          }
+          return res.json();
+        })
         .then(data => {
           setWeatherDescription(data.weather[0].description);
           setCurrentTemperature(toCelsius(data.main.temp));
@@ -88,7 +95,6 @@ const Weather = () => {
     />
     <WeatherCard
       cityName = {cityName}
-      countryName = {countryName}
       weatherDescription = {weatherDescription}
       currentTemperature = {currentTemperature}
       maxTemperature = {maxTemperature}

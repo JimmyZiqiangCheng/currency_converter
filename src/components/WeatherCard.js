@@ -12,7 +12,6 @@ import { WiThunderstorm } from "react-icons/wi";
 const WeatherCard = props => {
   const {
     cityName,
-    countryName,
     currentTemperature,
     weatherDescription,
     maxTemperature,
@@ -34,7 +33,6 @@ const WeatherCard = props => {
         <Card style={{ width: '28rem', border: 0}}>
           <Card.Body>
             <Card.Title>{cityName}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{countryName}</Card.Subtitle>
             <Card.Text>
               {weatherId===800 && <WiDaySunny size={120}/>}
               {weatherId>200 && weatherId<=300 && <WiThunderstorm size={120}/>}
