@@ -21,14 +21,14 @@ const Weather = () => {
   const [weatherId, setWeatherId] = useState(undefined);
   const [currentCity, setCurrentCity] = useState("");
   const [currentCountry, setCurrentCountry] = useState("");
-  const [firstTime, setFirstTime] = useState(false);
+  const [didMount, setdidMount] = useState(false);
   const [error, setError] = useState(false);
-  const [needUpdate, setNeedUpdate] = useState(false);
 
 
   const toCelsius = temp => Math.round(temp - 273.15);
 
   useEffect(() => {
+    setdidMount(true);
     fetch(SAMPLE_URL)
       .then(res => res.json())
       .then(data => {
@@ -39,12 +39,11 @@ const Weather = () => {
         setMaxTemperature(toCelsius(data.main.temp_max));
         setMinTemperature(toCelsius(data.main.temp_min));
         setWeatherId(data.weather[0].id);
-        setFirstTime(true);
       })
   },[]);
 
   useEffect(() => {
-      if(cityName.length!==0 && countryName.length!==0 && firstTime===true){
+      if(didMount){
         fetch(`${BASE_URL}?q=${currentCity},${currentCountry}&appid=${API_Key}`)
           .then(res => res.json())
           .then(data => {
@@ -59,8 +58,6 @@ const Weather = () => {
             console.log(err);
             setError(true);
           })
-        }else{
-          setError(true);
         }
   },[cityName, countryName]);
 
