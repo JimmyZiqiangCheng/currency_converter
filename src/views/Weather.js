@@ -23,6 +23,7 @@ const Weather = () => {
   const [currentCountry, setCurrentCountry] = useState("");
   const [firstTime, setFirstTime] = useState(false);
   const [error, setError] = useState(false);
+  const [needUpdate, setNeedUpdate] = useState(false);
 
 
   const toCelsius = temp => Math.round(temp - 273.15);
@@ -58,6 +59,8 @@ const Weather = () => {
             console.log(err);
             setError(true);
           })
+        }else{
+          setError(true);
         }
   },[cityName, countryName]);
 

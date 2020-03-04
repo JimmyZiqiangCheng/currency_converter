@@ -22,7 +22,7 @@ const WeatherCard = props => {
   } = props
   if (error) {
     return (
-      <Alert variant='danger'>
+      <Alert className="alertMessage" variant='danger'>
         Please type in a correct city and country combo such as "Tokyo, JP"
       </Alert>
     );
