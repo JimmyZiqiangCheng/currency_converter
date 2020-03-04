@@ -5,8 +5,6 @@
   padding-top: 5em;
   margin-bottom: 5rem;
   display: inline-block;
-  justify-content: center;
-  align-self: center;
   min-height: 50vh;
   text-align: center;
 }
@@ -28,7 +26,9 @@
 }
 
 .alertMessage{
-  margin-top: 5rem;
+  margin-top: 3rem;
+  width: 50%;
+  display: inline-block;
 }
 
 .jumbo{
