@@ -1,0 +1,80 @@
+@use "./colors";
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  :global {
+    .btn {
+      display: inline-block;
+      color: colors.$white;
+      width: 108px;
+      border: none;
+      border-radius: 3px;
+      background-color: transparent;
+      transition: 0.25s;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0.75em;
+      transition: 0.2s;
+      box-shadow: 1px 1px 4px 1px colors.$dark-grey;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        box-shadow: 1px 2px 8px 3px colors.$dark-grey;
+        transform: scale(1.1);
+      }
+      &:active {
+        cursor: pointer;
+        color: white;
+        box-shadow: 0 0 8px 1px colors.$dark-grey;
+        transform: scale(1);
+      }
+    }
+    .card-btn {
+      font-size: 14px;
+      color: colors.$light-grey;
+      box-shadow: 1px 1px 8px 3px black;
+      transition: 0.3s;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        box-shadow: 3px 3px 12px 6px black;
+      }
+      &:active {
+        cursor: pointer;
+        color: white;
+        box-shadow: 0 0 8px 3px black;
+      }
+    }
+    .modal-btn {
+      color: colors.$white;
+      box-shadow: 1px 1px 4px 1px colors.$light-grey;
+      transition: 0.2s;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        box-shadow: 1px 2px 8px 3px colors.$light-grey;
+      }
+      &:active {
+        cursor: pointer;
+        color: white;
+        box-shadow: 0 0 8px 1px colors.$light-grey;
+      }
+    }
+    .x-btn {
+      margin: 3px 3px;
+      background: none;
+      font-weight: bold;
+      border: none;
+      color: colors.$white;
+      transition: 0.2s ease-out;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}

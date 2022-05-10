@@ -1,0 +1,50 @@
+@use "./colors";
+.form {
+  height: 100%;
+  :global {
+    .form-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      .title {
+        font-size: 18px;
+        color: colors.$white;
+      }
+      .form-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 36px;
+        .input-fields {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          gap: 12px;
+          .input-field {
+            font-size: 18px;
+            padding: 0.25em;
+          }
+          .checkbox {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            .checkbox-label {
+              font-size: 16px;
+              font-weight: 400;
+              color: colors.$white;
+            }
+          }
+        }
+        .button-group {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+          gap: 12px;
+        }
+      }
+    }
+  }
+}

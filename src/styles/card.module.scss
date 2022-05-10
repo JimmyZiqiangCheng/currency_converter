@@ -1,0 +1,48 @@
+@use "./colors";
+@use "./media";
+.card {
+  :global {
+    .card-container {
+      border-radius: 5px;
+      width: 240px;
+      height: 360px;
+      color: colors.$light-grey;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+      box-shadow: 3px 6px 12px 1px black;
+      transition: 0.25s ease-out;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+        box-shadow: 4px 8px 24px black;
+        transform: scale(1.25);
+        .img-container {
+          .card-img {
+            filter: brightness(100%);
+          }
+        }
+      }
+      .img-container {
+        padding: 12px;
+        .card-img {
+          height: 102px;
+          filter: brightness(60%);
+          transition: 0.4s ease-out;
+        }
+      }
+      .title {
+        text-transform: uppercase;
+        font-size: 18px;
+      }
+      .description {
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+}

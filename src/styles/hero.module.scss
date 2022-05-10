@@ -1,0 +1,24 @@
+@use "./colors";
+@use "./media";
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+    url("../../public/imgs/bg-1.jpg");
+  background-size: cover;
+  background-position: center;
+  :global {
+    .home {
+      width: 80%;
+      .cards {
+        margin-top: 200px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@use "./colors";
+@use "./media";
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  :global {
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 12px;
+      height: 64px;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+      .icon-group {
+        display: flex;
+        align-items: center;
+        .list-icon {
+          height: 36px;
+          box-shadow: 2px 2px 4px 1px colors.$dark-grey;
+          padding: 3px;
+          text-align: center;
+          margin: 0 5px;
+          transition: 0.2s;
+          &:hover {
+            cursor: pointer;
+            box-shadow: 3px 3px 18px colors.$dark-grey;
+            transform: scale(1.1);
+          }
+          &:active {
+            box-shadow: 2px 2px 8px 1px colors.$dark-grey;
+            transform: scale(1);
+          }
+        }
+        .logo-img {
+          height: 42px;
+          margin: 0 5px;
+          transition: 0.2s;
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+          }
+          &:active {
+            transform: scale(1);
+          }
+        }
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 128px;
+        align-items: center;
+        gap: 64px;
+        font-size: 16px;
+        font-weight: bold;
+        .header-menu {
+          display: flex;
+          list-style: none;
+          gap: 48px;
+          &:hover {
+            cursor: pointer;
+          }
+          .menu-item {
+            .menu-link {
+              text-decoration: none;
+              color: colors.$white;
+              display: inline-block;
+              position: relative;
+              transition: 0.2s;
+              &:hover {
+                color: white;
+                transform: scale(1.1);
+              }
+              &:active {
+                transform: scale(1);
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                width: 60%;
+                transform: scaleX(0);
+                height: 2px;
+                bottom: -0.4em;
+                left: 20%;
+                background-color: white;
+                transform-origin: bottom;
+                transition: transform 0.3s ease-out;
+              }
+              &:hover:after {
+                transform: scaleX(1);
+                transform-origin: bottom;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
