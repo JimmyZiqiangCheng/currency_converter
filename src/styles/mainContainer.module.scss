@@ -3,13 +3,18 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 200px 0 0 0;
   :global {
-    .home {
+    .home-page {
+      padding-top: 25%;
       .cards {
         width: 100%;
         display: flex;
         justify-content: space-around;
+      }
+    }
+    .weather-page {
+      padding-top: 15%;
+      .searchBar {
       }
     }
   }

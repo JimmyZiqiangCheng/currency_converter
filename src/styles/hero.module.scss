@@ -10,15 +10,4 @@
     url("../../public/imgs/bg-1.jpg");
   background-size: cover;
   background-position: center;
-  :global {
-    .home {
-      width: 80%;
-      .cards {
-        margin-top: 200px;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-      }
-    }
-  }
 }

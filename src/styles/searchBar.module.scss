@@ -1,0 +1,46 @@
+@use "./colors";
+.searchBar {
+  display: flex;
+  justify-content: center;
+  :global {
+    .search-input {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 42px;
+      width: 252px;
+      padding: 6px;
+      background-color: white;
+      border-radius: 3px;
+      box-shadow: 3px 3px 12px 1px colors.$dark-grey;
+      transition: 0.25s ease-out;
+      &:hover {
+        cursor: pointer;
+        box-shadow: 8px 8px 24px 3px colors.$dark-grey;
+        transform: scale(1.02);
+      }
+      .input-field {
+        border: 0;
+        font-size: 16px;
+        color: colors.$dark-grey;
+        padding: 0.25em;
+        &:focus {
+          outline: none;
+        }
+      }
+      .search-icon {
+        width: 22px;
+        transition: 0.2s;
+        opacity: 0.5;
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+        &:active {
+          cursor: pointer;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}

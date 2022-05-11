@@ -1,6 +1,11 @@
 import React from "react";
+import SearchBar from "../components/SearchBar";
 const Weather = () => {
-  return <h1> this is the weather section</h1>;
+  return (
+    <div className="weather-page">
+      <SearchBar placeholder={"Enter your city name"} />
+    </div>
+  );
 };
 
 export default Weather;

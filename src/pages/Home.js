@@ -16,7 +16,7 @@ const Home = () => {
   };
   const authenticated = false;
   return (
-    <div className="home">
+    <div className="home-page">
       <div className="cards">
         <Card cardType={card1.type} description={card1.description} />
         <Card cardType={card2.type} description={card2.description} />

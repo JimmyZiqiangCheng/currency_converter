@@ -20,13 +20,13 @@
       &:hover {
         cursor: pointer;
         color: white;
-        box-shadow: 1px 2px 8px 3px colors.$dark-grey;
-        transform: scale(1.1);
+        box-shadow: 2px 2px 12px 3px colors.$dark-grey;
+        transform: scale(1.02);
       }
       &:active {
         cursor: pointer;
         color: white;
-        box-shadow: 0 0 8px 1px colors.$dark-grey;
+        box-shadow: 1px 1px 4px 1px colors.$dark-grey;
         transform: scale(1);
       }
     }
@@ -73,7 +73,7 @@
         transform: scale(1.2);
       }
       &:active {
-        transform: scale(0.95);
+        transform: scale(0.8);
       }
     }
   }
