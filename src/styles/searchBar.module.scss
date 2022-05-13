@@ -1,7 +1,9 @@
 @use "./colors";
 .searchBar {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   :global {
     .search-input {
       display: flex;
@@ -41,6 +43,20 @@
           transform: scale(1);
         }
       }
+    }
+    .data-list {
+      border-radius: 3px;
+      list-style: none;
+      text-align: center;
+      width: 252px;
+      font-size: 14px;
+      color: white;
+      background-color: black;
+      opacity: 0.4;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
     }
   }
 }

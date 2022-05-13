@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 
 export const useToggle = (defaultValue = false) => {
   const [state, setState] = useState(defaultValue);
@@ -29,6 +29,13 @@ export const useDebounce = (func, delay) => {
   const debounce = useCallback(() => {
     clearTimeout(myTimeOut);
     myTimeOut = setTimeout(() => func(), delay);
-  }, []);
+  }, [func, delay]);
   return debounce;
+};
+
+export const useNoInitialEffect = (fu, dependancies) => {
+  const firstRender = useRef(true);
+  useEffect(() => {
+    firstRender.current ? (firstRender.current = false) : fu();
+  }, dependancies);
 };
