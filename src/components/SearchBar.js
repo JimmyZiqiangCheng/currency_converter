@@ -1,47 +1,60 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useRef, useContext } from "react";
 import styles from "../styles/searchBar.module.scss";
-import { useDebounce, useNoInitialEffect } from "../utils/customHooks";
+import {
+  useDebounce,
+  useNoInitialEffect,
+  useOutsideClick,
+} from "../utils/customHooks";
 import { getLocations, getWeather } from "../api/weatherAPI";
+import { WeatherContext } from "../services/weatherProvider/WeatherProvider";
 
 const SearchBar = ({ placeholder }) => {
   const [input, setInput] = useState("");
-  const [queryInput, setQueryInput] = useState("");
+  const [query, setQuery] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
+  const { setWeather } = useContext(WeatherContext);
+
+  const ref = useRef();
 
   const handleChange = (event) => {
     setInput(event.target.value);
+    debouncedSetQuery(event.target.value);
+    debouncedSetShowModal(event.target.value !== "");
   };
-  const updateQueryInput = () => {
-    setQueryInput(input);
-    console.log("updateQueryInput called");
+
+  const updateInputField = (d) => {
+    setInput(`${d.name}, ${d.region}`);
+    setShowModal(false);
   };
-  const debouncedUpdateQueryInput = useDebounce(updateQueryInput, 500);
 
-  useNoInitialEffect(useCallback(debouncedUpdateQueryInput, []), [input]);
-
-  const filterData = (data) => {
-    return data.filter((d) =>
-      d.name.includes(queryInput.replace(/\b\w/g, (c) => c.toUpperCase()))
+  const debouncedSetQuery = useDebounce(setQuery, 500);
+  const debouncedSetShowModal = useDebounce(setShowModal, 500);
+  const filterData = (data, reference) =>
+    data.filter((d) =>
+      Object.values(d).join("").toLowerCase().includes(reference.toLowerCase())
     );
-  };
 
-  const getFilteredData = async () => {
-    const data = await getLocations(queryInput);
-    setFilteredData(filterData(data));
-    console.log("getFilteredData called");
-  };
-  useNoInitialEffect(getFilteredData, [queryInput]);
+  useNoInitialEffect(() => {
+    const updateFilteredData = async () => {
+      if (query === "") return;
+      const data = await getLocations(query);
+      setFilteredData(filterData(data, query));
+    };
+    updateFilteredData();
+  }, [query]);
 
-  const handleSubmit = async (event) => {};
+  useOutsideClick(ref, () => {
+    setShowModal(false);
+  });
 
-  const displayData = () => {
-    filteredData.map(({ id, name, region, country }) => {
-      return (
-        <li className="list-item" key={id}>
-          <p className="item-detail">{`${name}, ${region}, ${country}`}</p>
-        </li>
-      );
-    });
+  const handleSubmit = async () => {
+    setInput("");
+    setQuery("");
+    setFilteredData([]);
+    const weather = await getWeather(query);
+    setWeather(weather);
+    console.log(weather);
   };
 
   return (
@@ -61,11 +74,21 @@ const SearchBar = ({ placeholder }) => {
           onClick={handleSubmit}
         />
       </div>
-      {filteredData.length != 0 && (
-        <ul className="data-list">{displayData()}</ul>
+
+      {showModal && filteredData && filteredData.length !== 0 && (
+        <ul className="data-list">
+          {filteredData.map((d) => (
+            <li
+              className="list-item"
+              key={d.id}
+              onClick={() => updateInputField(d)}
+              ref={ref}
+            >
+              {`${d.name}, ${d.region}`}
+            </li>
+          ))}
+        </ul>
       )}
-      <p>{input}</p>
-      <p>{queryInput}</p>
     </div>
   );
 };

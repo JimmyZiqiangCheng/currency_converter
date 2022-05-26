@@ -33,17 +33,17 @@
     .card-btn {
       font-size: 14px;
       color: colors.$light-grey;
-      box-shadow: 1px 1px 8px 3px black;
+      box-shadow: 2px 2px 4px 1px black;
       transition: 0.3s;
       &:hover {
         cursor: pointer;
         color: white;
-        box-shadow: 3px 3px 12px 6px black;
+        box-shadow: 3px 3px 12px 3px black;
       }
       &:active {
         cursor: pointer;
         color: white;
-        box-shadow: 0 0 8px 3px black;
+        box-shadow: 0 0 8px 1px black;
       }
     }
     .modal-btn {
@@ -75,6 +75,11 @@
       &:active {
         transform: scale(0.8);
       }
+    }
+    .selector-btn {
+      width: 82px;
+      padding: 0.25em;
+      color: white;
     }
   }
 }

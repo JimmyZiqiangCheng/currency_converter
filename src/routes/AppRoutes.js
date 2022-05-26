@@ -7,6 +7,8 @@ import Crypto from "../pages/Crypto";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import Hero from "../components/Hero";
 import styles from "../styles/mainContainer.module.scss";
+import WeatherProvider from "../services/weatherProvider/WeatherProvider";
+import CurrencyProvider from "../services/currencyProvider/CurrencyProvider";
 const AppRoutes = () => {
   return (
     <Router>
@@ -19,16 +21,20 @@ const AppRoutes = () => {
             path="/weather"
             element={
               <ProtectedRoute>
-                <Weather />
+                <WeatherProvider>
+                  <Weather />
+                </WeatherProvider>
               </ProtectedRoute>
             }
           />
           <Route
             path="/currency"
             element={
-              <ProtectedRoute>
-                <Currency />
-              </ProtectedRoute>
+              <CurrencyProvider>
+                <ProtectedRoute>
+                  <Currency />
+                </ProtectedRoute>
+              </CurrencyProvider>
             }
           />
           <Route

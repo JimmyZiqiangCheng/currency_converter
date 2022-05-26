@@ -1,0 +1,36 @@
+.selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 460px;
+  font-size: 16px;
+  color: white;
+  :global {
+    .label {
+      font-weight: bold;
+    }
+    .from-selector {
+      .select-from {
+        height: 28px;
+        border-radius: 3px;
+        padding: 3px;
+      }
+    }
+    .to-selector {
+      .select-to {
+        height: 28px;
+        border-radius: 3px;
+        padding: 3px;
+      }
+    }
+    .amount-input {
+      .input-field {
+        height: 28px;
+        width: 80px;
+        border: none;
+        border-radius: 3px;
+        padding: 3px;
+      }
+    }
+  }
+}

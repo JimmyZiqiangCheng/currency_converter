@@ -6,7 +6,6 @@ export const getLocations = async (location) => {
   try {
     const response = await axios.get(`${AUTOCOMPLETE_URL}${location}`);
     const locations = await response.data;
-    console.log(locations);
     return locations;
   } catch (err) {
     console.error(err.message);
@@ -16,7 +15,7 @@ export const getLocations = async (location) => {
 export const getWeather = async (location_url) => {
   try {
     const response = await axios.get(
-      `${WEATHER_URL}${location_url}&days=1&aqi=no&alerts=no`
+      `${WEATHER_URL}${location_url}&days=5&aqi=no&alerts=no`
     );
     const weather = await response.data;
     return weather;

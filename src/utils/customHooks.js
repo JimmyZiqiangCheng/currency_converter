@@ -1,11 +1,8 @@
 import { useCallback, useState, useEffect, useRef } from "react";
 
-export const useToggle = (defaultValue = false) => {
-  const [state, setState] = useState(defaultValue);
-  const toggle = useCallback(
-    (value) => setState((on) => (typeof value === "boolean" ? value : !state)),
-    []
-  );
+export const useToggle = (initialState = false) => {
+  const [state, setState] = useState(initialState);
+  const toggle = useCallback(() => setState((state) => !state), []);
   return [state, toggle];
 };
 
@@ -26,10 +23,10 @@ export const useLocalStorage = (key, defaultValue) => {
 
 export const useDebounce = (func, delay) => {
   let myTimeOut;
-  const debounce = useCallback(() => {
+  const debounce = useCallback((para = null) => {
     clearTimeout(myTimeOut);
-    myTimeOut = setTimeout(() => func(), delay);
-  }, [func, delay]);
+    myTimeOut = setTimeout(() => func(para), delay);
+  }, []);
   return debounce;
 };
 
@@ -38,4 +35,20 @@ export const useNoInitialEffect = (fu, dependancies) => {
   useEffect(() => {
     firstRender.current ? (firstRender.current = false) : fu();
   }, dependancies);
+};
+
+export const useOutsideClick = (ref, func) => {
+  const handleClick = (e) => {
+    if (ref.current && !ref.current.contains(e.target)) {
+      func();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  });
 };

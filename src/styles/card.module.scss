@@ -2,46 +2,48 @@
 @use "./media";
 .card {
   :global {
-    .card-container {
-      border-radius: 5px;
-      width: 240px;
-      height: 360px;
-      color: colors.$light-grey;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
-      box-shadow: 6px 6px 6px 1px black;
-      transition: 0.25s ease-out;
-      &:hover {
-        cursor: pointer;
-        color: white;
+    .homepage-card {
+      .card-container {
+        border-radius: 5px;
+        width: 240px;
+        height: 360px;
+        color: colors.$light-grey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px;
         background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-        box-shadow: 12px 12px 36px 3px black;
-        transform: scale(1.02);
-        .img-container {
-          .card-img {
-            filter: brightness(100%);
+        box-shadow: 6px 6px 6px 1px rgba(0, 0, 0, 0.7);
+        transition: 0.25s ease-out;
+        &:hover {
+          cursor: pointer;
+          color: white;
+          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+          box-shadow: 12px 12px 36px 3px rgba(0, 0, 0, 0.8);
+          transform: scale(1.02);
+          .img-container {
+            .card-img {
+              filter: brightness(100%);
+            }
           }
         }
-      }
-      .img-container {
-        padding: 12px;
-        .card-img {
-          height: 102px;
-          filter: brightness(60%);
-          transition: 0.4s ease-out;
+        .img-container {
+          padding: 12px;
+          .card-img {
+            height: 102px;
+            filter: brightness(60%);
+            transition: 0.4s ease-out;
+          }
         }
-      }
-      .title {
-        text-transform: uppercase;
-        font-size: 18px;
-      }
-      .description {
-        text-align: center;
-        font-size: 16px;
+        .title {
+          text-transform: uppercase;
+          font-size: 18px;
+        }
+        .description {
+          text-align: center;
+          font-size: 16px;
+        }
       }
     }
   }
