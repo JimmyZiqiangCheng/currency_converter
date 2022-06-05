@@ -9,6 +9,7 @@ import Hero from "../components/Hero";
 import styles from "../styles/mainContainer.module.scss";
 import WeatherProvider from "../services/weatherProvider/WeatherProvider";
 import CurrencyProvider from "../services/currencyProvider/CurrencyProvider";
+import CryptoProvider from "../services/cryptoProvider/CryptoProvider";
 const AppRoutes = () => {
   return (
     <Router>
@@ -40,9 +41,11 @@ const AppRoutes = () => {
           <Route
             path="/crypto"
             element={
-              <ProtectedRoute>
-                <Crypto />
-              </ProtectedRoute>
+              <CryptoProvider>
+                <ProtectedRoute>
+                  <Crypto />
+                </ProtectedRoute>
+              </CryptoProvider>
             }
           />
         </Routes>

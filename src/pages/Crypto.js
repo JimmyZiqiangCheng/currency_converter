@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { getCryptos } from "../api/cryptoAPI";
+import NewsTicker from "../components/NewsTicker";
+import { CryptoContext } from "../services/cryptoProvider/CryptoProvider";
 const Crypto = () => {
-  return <h1> this is the Crypto section</h1>;
+  const { setCrypto } = useContext(CryptoContext);
+  useEffect(() => {
+    const callCryptoAPI = async () => {
+      const rates = await getCryptos();
+      setCrypto(rates);
+    };
+    callCryptoAPI();
+  }, []);
+  return (
+    <div className="crypto-page">
+      <div className="title"></div>
+      <div className="news-ticker">
+        <NewsTicker />
+      </div>
+    </div>
+  );
 };
 
 export default Crypto;

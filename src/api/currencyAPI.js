@@ -1,11 +1,31 @@
 import axios from "axios";
 
 const EXCHANGE_URL = "https://api.apilayer.com/currency_data/convert?";
+const CHANGE_URL = "https://api.apilayer.com/currency_data/change?";
 
 const config = {
   headers: {
-    apikey: "8dCasBNXD3C0HdV3DuiEM3vTGh7LTDam",
+    apikey: process.env.REACT_APP_CURRENCY_API_KEY,
   },
+};
+
+const currencies = "EUR,CAD,AUD,JPY,CNY";
+
+export const getExchangeRates = async (date) => {
+  try {
+    const response = await axios.get(
+      `${CHANGE_URL}start_date=${date}&end_date=${date}&currencies=${currencies}`,
+      config
+    );
+    const data = response.data.quotes;
+    const rates = Object.entries(data).map((entry) => ({
+      currency: entry[0].slice(3, 6),
+      rate: entry[1].end_rate,
+    }));
+    return rates;
+  } catch (err) {
+    console.error(err.message);
+  }
 };
 export const convert = async (to, from, amount) => {
   try {

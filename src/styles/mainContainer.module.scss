@@ -23,14 +23,14 @@
       height: 100%;
       .search-section {
         position: absolute;
-        top: 140px;
+        top: 14%;
         width: 100%;
         display: flex;
         justify-content: center;
       }
       .weather-section {
         position: absolute;
-        top: 280px;
+        top: 28%;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -41,7 +41,7 @@
       height: 100%;
       .selector-section {
         position: absolute;
-        top: 240px;
+        top: 18%;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -49,7 +49,7 @@
       }
       .currency-display {
         position: absolute;
-        top: 320px;
+        top: 24%;
         width: 100%;
         color: white;
         text-align: center;
@@ -57,6 +57,17 @@
         &:hover {
           cursor: pointer;
         }
+      }
+    }
+    .crypto-page {
+      position: relative;
+      height: 100%;
+      .news-ticker {
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
       }
     }
   }
