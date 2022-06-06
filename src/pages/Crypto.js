@@ -1,21 +1,24 @@
 import React, { useContext, useEffect } from "react";
 import { getCryptos } from "../api/cryptoAPI";
-import NewsTicker from "../components/NewsTicker";
+import Carousel from "../components/Carousel";
 import { CryptoContext } from "../services/cryptoProvider/CryptoProvider";
+
 const Crypto = () => {
-  const { setCrypto } = useContext(CryptoContext);
+  const { cryptos, setCryptos } = useContext(CryptoContext);
   useEffect(() => {
     const callCryptoAPI = async () => {
       const rates = await getCryptos();
-      setCrypto(rates);
+      console.log(rates);
+      setCryptos(rates);
     };
     callCryptoAPI();
   }, []);
+
   return (
     <div className="crypto-page">
       <div className="title"></div>
-      <div className="news-ticker">
-        <NewsTicker />
+      <div className="carousel">
+        <Carousel content={cryptos} slidesPerView={4} slidesPerGroup={4} />
       </div>
     </div>
   );

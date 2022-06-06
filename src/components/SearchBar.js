@@ -54,7 +54,6 @@ const SearchBar = ({ placeholder }) => {
     setFilteredData([]);
     const weather = await getWeather(query);
     setWeather(weather);
-    console.log(weather);
   };
 
   return (
