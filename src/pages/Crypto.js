@@ -18,7 +18,7 @@ const Crypto = () => {
     <div className="crypto-page">
       <div className="title"></div>
       <div className="carousel">
-        <Carousel content={cryptos} slidesPerView={4} slidesPerGroup={4} />
+        <Carousel content={cryptos} slidesPerView={4} />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ const config = {
   },
 };
 
-const currencies = "EUR,CAD,AUD,JPY,CNY";
+const currencies = "EUR,CAD,AUD,JPY,CNY,GBP";
 
 export const getExchangeRates = async (date) => {
   try {
@@ -17,8 +17,8 @@ export const getExchangeRates = async (date) => {
       `${CHANGE_URL}start_date=${date}&end_date=${date}&currencies=${currencies}`,
       config
     );
-    const data = response.data.quotes;
-    const rates = Object.entries(data).map((entry) => ({
+    const data = await response.data.quotes;
+    const rates = await Object.entries(data).map((entry) => ({
       currency: entry[0].slice(3, 6),
       rate: entry[1].end_rate,
     }));

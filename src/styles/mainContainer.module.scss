@@ -58,6 +58,15 @@
           cursor: pointer;
         }
       }
+      .carousel {
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+        display: flex;
+        justify-content: center;
+      }
     }
     .crypto-page {
       position: relative;
