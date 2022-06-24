@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { getCryptos } from "../api/cryptoAPI";
-import Carousel from "../components/Carousel";
+import MyGrid from "../components/MyGrid";
 import { CryptoContext } from "../services/cryptoProvider/CryptoProvider";
 
 const Crypto = () => {
@@ -17,8 +17,8 @@ const Crypto = () => {
   return (
     <div className="crypto-page">
       <div className="title"></div>
-      <div className="carousel">
-        <Carousel content={cryptos} slidesPerView={4} />
+      <div className="grid-container">
+        <MyGrid content={cryptos} />
       </div>
     </div>
   );

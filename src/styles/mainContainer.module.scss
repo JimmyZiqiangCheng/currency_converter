@@ -39,17 +39,27 @@
     .currency-page {
       position: relative;
       height: 100%;
+      .currency-header {
+        position: absolute;
+        top: 16%;
+        font-size: 26px;
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        color: white;
+      }
       .selector-section {
         position: absolute;
-        top: 18%;
+        top: 24%;
         width: 100%;
         display: flex;
         justify-content: center;
         gap: 16px;
+        padding: 12px;
       }
       .currency-display {
         position: absolute;
-        top: 24%;
+        top: 32%;
         width: 100%;
         color: white;
         text-align: center;
@@ -69,16 +79,19 @@
       }
     }
     .crypto-page {
-      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100%;
-      .carousel {
-        position: absolute;
-        top: 40%;
-        width: 100%;
-        height: 200px;
+      .grid-container {
+        border-radius: 3px;
+        top: 10%;
+        width: 90%;
+        height: 80%;
         background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
         display: flex;
         justify-content: center;
+        align-items: center;
       }
     }
   }

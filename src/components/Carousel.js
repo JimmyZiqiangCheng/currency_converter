@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -10,19 +10,17 @@ const Carousel = ({ content, slidesPerView }) => {
   return (
     <div className={styles.carousel}>
       <Swiper
-        modules={[Pagination, Navigation, Autoplay]}
+        modules={[Navigation, Autoplay]}
         className="myCarousel"
         slidesPerView={slidesPerView}
         autoplay={{
-          delay: 1000,
+          delay: 2000,
           pauseOnMouseEnter: true,
           disableOnInteraction: false,
         }}
+        spaceBetween={5}
         loop={true}
         loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
         navigation={true}
       >
         {content &&

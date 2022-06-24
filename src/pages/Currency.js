@@ -9,6 +9,7 @@ const Currency = () => {
   const { result } = useContext(CurrencyContext);
   const [showAlt, toggleShowAlt] = useToggle();
   const [rates, setRates] = useState(null);
+  const [slidePerView, setSlidePerView] = useState(4);
   useEffect(() => {
     const getRates = async () => {
       const today = new Date();
@@ -25,6 +26,7 @@ const Currency = () => {
   }, []);
   return (
     <div className="currency-page">
+      <h1 className="currency-header"> Convert Your Currency Here</h1>
       <div className="selector-section">
         <Selector />
       </div>
@@ -39,7 +41,7 @@ const Currency = () => {
           </p>
         ))}
       <div className="carousel">
-        <Carousel content={rates} slidesPerView={4} />
+        <Carousel content={rates} slidesPerView={slidePerView} />
       </div>
     </div>
   );

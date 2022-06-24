@@ -27,7 +27,7 @@ const Selector = () => {
   return (
     <form className={styles.selector}>
       <div className="from-selector">
-        <label className="label from-label">from: </label>
+        <label className="label from-label">FROM: </label>
         <select
           className="select-from"
           name="from"
@@ -45,7 +45,7 @@ const Selector = () => {
         </select>
       </div>
       <div className="to-selector">
-        <label className="label to-label">to: </label>
+        <label className="label to-label">TO: </label>
         <select
           className="select-to"
           name="to"
@@ -63,11 +63,11 @@ const Selector = () => {
         </select>
       </div>
       <div className="amount-input">
-        <label className="label amount-label">amount: </label>
+        <label className="label amount-label">AMOUNT: </label>
         <input
           type="text"
           className="input-field"
-          placeholder="amount"
+          placeholder="1.00"
           value={amount}
           onChange={handleChange}
         />
