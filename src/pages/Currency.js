@@ -10,6 +10,7 @@ const Currency = () => {
   const [showAlt, toggleShowAlt] = useToggle();
   const [rates, setRates] = useState(null);
   const [slidePerView, setSlidePerView] = useState(4);
+
   useEffect(() => {
     const getRates = async () => {
       const today = new Date();

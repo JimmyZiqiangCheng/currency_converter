@@ -8,7 +8,7 @@ export const getCryptos = async () => {
     const response = await axios.get(url);
     const data = await response.data;
     const rates = data.rates;
-    return rates;
+    return Object.entries(rates);
   } catch (err) {
     console.error(err.message);
   }

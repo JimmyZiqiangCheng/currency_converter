@@ -1,0 +1,28 @@
+.pagination {
+  width: 50%;
+  height: 20px;
+  display: flex;
+  :global {
+    .page-tiles {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-around;
+      gap: 10px;
+      list-style: none;
+      .page-tile {
+        width: 5px;
+        padding: 1px;
+        font-size: 16px;
+        .page-link {
+          color: white;
+          transition: 0.25s ease-out;
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
