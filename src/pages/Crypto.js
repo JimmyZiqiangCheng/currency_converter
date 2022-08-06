@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { getCryptos } from "../api/cryptoAPI";
 import MyGrid from "../components/MyGrid";
-import { CryptoContext } from "../services/cryptoProvider/CryptoProvider";
+import { CryptoContext } from "../providers/cryptoProvider/CryptoProvider";
 import Pagination from "../components/Pagination";
 
 const Crypto = () => {

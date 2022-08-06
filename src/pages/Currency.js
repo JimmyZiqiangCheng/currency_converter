@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { getExchangeRates } from "../api/currencyAPI";
 import Selector from "../components/Selector";
-import { CurrencyContext } from "../services/currencyProvider/CurrencyProvider";
+import { CurrencyContext } from "../providers/currencyProvider/CurrencyProvider";
 import { useToggle } from "../utils/customHooks";
 import Carousel from "../components/Carousel";
 

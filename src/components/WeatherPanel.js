@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "../styles/weatherPanel.module.scss";
-import { WeatherContext } from "../services/weatherProvider/WeatherProvider";
+import { WeatherContext } from "../providers/weatherProvider/WeatherProvider";
 import { useToggle } from "../utils/customHooks";
 
 const WeatherPanel = () => {

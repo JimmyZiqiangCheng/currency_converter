@@ -1,66 +1,73 @@
 import React, { useState, useContext } from "react";
 import Button from "./Button";
-import { useLocalStorage } from "../utils/customHooks";
+import { useLocalStorage, useToggle } from "../utils/customHooks";
 import styles from "../styles/form.module.scss";
-import { ThemeContext } from "../services/themeProvider/ThemeProvider";
+import { ThemeContext } from "../providers/themeProvider/ThemeProvider";
+import Firebase from "../providers/authProvider/Firebase";
+import Login from "./Login";
+import { signIn, signUp } from "../services/AuthService/AuthService";
+import { AuthContext } from "../providers/authProvider/AuthProvider";
 
 function Form({ title }) {
-  const [rememberPassword, setRememberPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [hasAccount, toggleHasAccount] = useToggle(true);
   const { toggleShowModal } = useContext(ThemeContext);
+  const { setIsAuthenticated, setUser } = useContext(AuthContext);
+  const clearInputs = () => {
+    setEmail("");
+    setPassword("");
+  };
+  const clearErrors = () => {
+    setEmailError("");
+    setPasswordError("");
+  };
   const handleSignUp = (e) => {
     e.preventDefault();
-    console.log("signed up");
-    toggleShowModal();
+    signUp(
+      email,
+      password,
+      setEmailError,
+      setPasswordError,
+      clearErrors,
+      clearInputs,
+      toggleShowModal,
+      setIsAuthenticated,
+      setUser
+    );
   };
-  const handleLogin = (e) => {
+  const handleSignIn = (e) => {
     e.preventDefault();
-    console.log("logged in");
-    toggleShowModal();
-  };
-  const handleChangeRemember = (e) => {
-    e.target.checked ? setRememberPassword(true) : setRememberPassword(false);
+    signIn(
+      email,
+      password,
+      setEmailError,
+      setPasswordError,
+      clearErrors,
+      clearInputs,
+      toggleShowModal,
+      setIsAuthenticated,
+      setUser
+    );
   };
 
   return (
     <div className={styles.form}>
-      <div className="form-container">
-        <h1 className="title">{title}</h1>
-        <form>
-          <div className="form-content">
-            <div className="input-fields">
-              <input
-                placeholder="E-mail"
-                name="email"
-                className="input-field"
-              />
-              <input
-                placeholder="password"
-                name="password"
-                className="input-field"
-              />
-              <div className="checkbox">
-                <input type="checkbox" name="remember" id="remember" />
-                <label htmlFor="remember" className="checkbox-label">
-                  {" "}
-                  remember my password
-                </label>
-              </div>
-            </div>
-            <div className="button-group">
-              <Button
-                text="Log In"
-                buttonType="btn modal-btn"
-                handleClick={handleLogin}
-              />
-              <Button
-                text="Sign Up"
-                buttonType="btn modal-btn"
-                handleClick={handleSignUp}
-              />
-            </div>
-          </div>
-        </form>
-      </div>
+      <Login
+        title={title}
+        handleSignIn={handleSignIn}
+        handleSignUp={handleSignUp}
+        hasAccount={hasAccount}
+        toggleHasAccount={toggleHasAccount}
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        emailError={emailError}
+        passwordError={passwordError}
+      />
     </div>
   );
 }

@@ -7,9 +7,9 @@ import Crypto from "../pages/Crypto";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import Hero from "../components/Hero";
 import styles from "../styles/mainContainer.module.scss";
-import WeatherProvider from "../services/weatherProvider/WeatherProvider";
-import CurrencyProvider from "../services/currencyProvider/CurrencyProvider";
-import CryptoProvider from "../services/cryptoProvider/CryptoProvider";
+import WeatherProvider from "../providers/weatherProvider/WeatherProvider";
+import CurrencyProvider from "../providers/currencyProvider/CurrencyProvider";
+import CryptoProvider from "../providers/cryptoProvider/CryptoProvider";
 const AppRoutes = () => {
   return (
     <Router>

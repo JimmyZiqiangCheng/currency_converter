@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
 import AppRoutes from "./routes/AppRoutes";
-import ThemeProvider from "./services/themeProvider/ThemeProvider";
+import AuthProvider from "./providers/authProvider/AuthProvider";
+import ThemeProvider from "./providers/themeProvider/ThemeProvider";
 
 const App = () => {
   return (
-    <ThemeProvider>
-      <AppRoutes />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <AppRoutes />
+      </ThemeProvider>
+    </AuthProvider>
   );
 };
 

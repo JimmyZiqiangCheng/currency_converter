@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import styles from "../styles/selector.module.scss";
 import Button from "./Button";
 import { convert } from "../api/currencyAPI";
-import { CurrencyContext } from "../services/currencyProvider/CurrencyProvider";
+import { CurrencyContext } from "../providers/currencyProvider/CurrencyProvider";
 
 const Selector = () => {
   const [amount, setAmount] = useState("");

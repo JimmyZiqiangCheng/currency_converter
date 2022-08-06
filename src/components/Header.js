@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import Modal from "./Modal";
 import Form from "./Form";
-import { ThemeContext } from "../services/themeProvider/ThemeProvider";
+import { ThemeContext } from "../providers/themeProvider/ThemeProvider";
+import { AuthContext } from "../providers/authProvider/AuthProvider";
+import { handleSignOut } from "../services/AuthService/AuthService";
 
 const Header = () => {
   const { toggleShowModal } = useContext(ThemeContext);
+  const { isAuthenticated, setIsAuthenticated, user, setUser } =
+    useContext(AuthContext);
+
   return (
     <div className={styles.header}>
       <div className="header-container">
@@ -40,14 +45,28 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <Button
-            text={"Log In"}
-            buttonType={"btn header-btn"}
-            handleClick={toggleShowModal}
-          />
-          <Modal title="Log In">
-            <Form title={"Welcome"} />
-          </Modal>
+
+          {isAuthenticated ? (
+            <div className="sign-out-section">
+              <p>{user.email}</p>
+              <Button
+                text={"Logout"}
+                buttonType={"btn header-btn"}
+                handleClick={() => handleSignOut(setIsAuthenticated, setUser)}
+              />
+            </div>
+          ) : (
+            <div className="sign-in-section">
+              <Button
+                text={"Log In"}
+                buttonType={"btn header-btn"}
+                handleClick={toggleShowModal}
+              />
+              <Modal title="Log In">
+                <Form title={"Welcome"} />
+              </Modal>
+            </div>
+          )}
         </nav>
       </div>
     </div>

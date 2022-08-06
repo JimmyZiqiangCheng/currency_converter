@@ -6,7 +6,7 @@ import {
   useOutsideClick,
 } from "../utils/customHooks";
 import { getLocations, getWeather } from "../api/weatherAPI";
-import { WeatherContext } from "../services/weatherProvider/WeatherProvider";
+import { WeatherContext } from "../providers/weatherProvider/WeatherProvider";
 
 const SearchBar = ({ placeholder }) => {
   const [input, setInput] = useState("");

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SearchBar from "../components/SearchBar";
 import WeatherPanel from "../components/WeatherPanel";
-import { WeatherContext } from "../services/weatherProvider/WeatherProvider";
+import { WeatherContext } from "../providers/weatherProvider/WeatherProvider";
 const Weather = () => {
   const { weather } = useContext(WeatherContext);
   return (

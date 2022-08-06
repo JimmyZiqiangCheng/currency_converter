@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { ThemeContext } from "../services/themeProvider/ThemeProvider";
+import { ThemeContext } from "../providers/themeProvider/ThemeProvider";
 import { useOutsideClick } from "../utils/customHooks";
 import styles from "../styles/modal.module.scss";
 import Button from "./Button";
