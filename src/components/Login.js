@@ -13,6 +13,7 @@ const Login = ({
   setPassword,
   emailError,
   passwordError,
+  sendPasswordReset,
 }) => {
   return (
     <section className="form-container">
@@ -44,12 +45,26 @@ const Login = ({
                 buttonType="btn modal-btn"
                 handleClick={handleSignIn}
               />
-              <p className="text">
-                Don't have an account?{" "}
-                <span className="click-text" onClick={() => toggleHasAccount()}>
-                  Sign up
-                </span>
-              </p>
+              <div className="text-group">
+                <p className="text">
+                  Don't have an account?{" "}
+                  <span
+                    className="click-text"
+                    onClick={() => toggleHasAccount()}
+                  >
+                    Sign up
+                  </span>
+                </p>
+                <p className="text">
+                  Forget Your Password?
+                  <span
+                    className="click-text"
+                    onClick={() => sendPasswordReset(email)}
+                  >
+                    Click Here
+                  </span>
+                </p>
+              </div>
             </div>
           ) : (
             <div className="button-group">
@@ -58,12 +73,17 @@ const Login = ({
                 buttonType="btn modal-btn"
                 handleClick={handleSignUp}
               />
-              <p className="text">
-                have an account already?{" "}
-                <span className="click-text" onClick={() => toggleHasAccount()}>
-                  Sign In
-                </span>
-              </p>
+              <div className="text-group">
+                <p className="text">
+                  have an account already?{" "}
+                  <span
+                    className="click-text"
+                    onClick={() => toggleHasAccount()}
+                  >
+                    Sign In
+                  </span>
+                </p>
+              </div>
             </div>
           )}
         </div>

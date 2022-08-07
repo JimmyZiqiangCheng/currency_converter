@@ -39,17 +39,24 @@
           align-items: center;
           justify-content: space-around;
           gap: 36px;
-          .text {
-            font-size: 14px;
-            font-weight: 500;
-            color: colors.$white;
-            width: 260px;
-            text-align: center;
-            .click-text {
-              color: yellow;
-              &:hover {
-                cursor: pointer;
-                text-decoration: underline;
+          .text-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            gap: 8px;
+            .text {
+              font-size: 14px;
+              font-weight: 500;
+              color: colors.$white;
+              width: 260px;
+              text-align: center;
+              .click-text {
+                color: yellow;
+                &:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
               }
             }
           }

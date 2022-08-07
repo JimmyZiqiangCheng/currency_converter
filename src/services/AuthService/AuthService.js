@@ -3,6 +3,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
 export const auth = getAuth(Firebase);
@@ -74,7 +75,7 @@ export const signUp = async (
     switch (err.code) {
       case "auth/email-already-in-use":
       case "auth/invalid-email":
-        setEmailError(err.message);
+        setEmailError("your email address is invalid!");
         break;
       case "auth/weak-password":
         setPasswordError(err.message);
@@ -91,6 +92,21 @@ export const handleSignOut = async (setIsAuthenticated, setUser) => {
     setIsAuthenticated(false);
     setUser("");
   } catch (err) {
-    console.error(err.message);
+    alert(err.message);
+  }
+};
+
+export const sendPasswordReset = async (email, setEmailError) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert("Password reset link sent!");
+  } catch (err) {
+    switch (err.code) {
+      case "auth/missing-email":
+        setEmailError("Please enter your email!");
+        break;
+      default:
+        alert(err.message);
+    }
   }
 };

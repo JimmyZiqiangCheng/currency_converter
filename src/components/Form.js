@@ -5,7 +5,11 @@ import styles from "../styles/form.module.scss";
 import { ThemeContext } from "../providers/themeProvider/ThemeProvider";
 import Firebase from "../providers/authProvider/Firebase";
 import Login from "./Login";
-import { signIn, signUp } from "../services/AuthService/AuthService";
+import {
+  sendPasswordReset,
+  signIn,
+  signUp,
+} from "../services/AuthService/AuthService";
 import { AuthContext } from "../providers/authProvider/AuthProvider";
 
 function Form({ title }) {
@@ -52,6 +56,9 @@ function Form({ title }) {
       setUser
     );
   };
+  const handleReset = () => {
+    sendPasswordReset(email, setEmailError);
+  };
 
   return (
     <div className={styles.form}>
@@ -67,6 +74,7 @@ function Form({ title }) {
         setPassword={setPassword}
         emailError={emailError}
         passwordError={passwordError}
+        sendPasswordReset={handleReset}
       />
     </div>
   );
