@@ -17,7 +17,7 @@ const Header = () => {
     <div className={styles.header}>
       <div className="header-container">
         <div className="icon-group">
-          <img src="../../../icons/list.svg" alt="list" className="list-icon" />
+          <img src="../../../icons/list.svg" alt="list" className="list-menu" />
           <Link to="/home">
             <img src="../../../logo_big.svg" alt="logo" className="logo-img" />
           </Link>

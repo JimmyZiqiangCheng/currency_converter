@@ -18,7 +18,7 @@
         transition: 0.25s ease-out;
         &:hover {
           cursor: pointer;
-          color: white;
+          color: colors.$white;
           background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
           box-shadow: 12px 12px 36px 3px rgba(0, 0, 0, 0.8);
           transform: scale(1.02);
@@ -43,6 +43,14 @@
         .description {
           text-align: center;
           font-size: 16px;
+        }
+      }
+      @media screen and (max-width: 750px) {
+        .card-container {
+          height: 180px;
+          .img-container {
+            display: none;
+          }
         }
       }
     }

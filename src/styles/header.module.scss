@@ -16,7 +16,8 @@
       .icon-group {
         display: flex;
         align-items: center;
-        .list-icon {
+        .list-menu {
+          display: none;
           height: 36px;
           box-shadow: 2px 2px 4px 1px colors.$dark-grey;
           padding: 3px;
@@ -45,10 +46,17 @@
             transform: scale(1);
           }
         }
+        @media (max-width: 750px) {
+          .list-menu {
+            display: flex;
+          }
+        }
       }
       .navbar {
         display: flex;
         justify-content: space-between;
+        margin: 0;
+        padding: 0;
         padding: 0 128px;
         align-items: center;
         gap: 64px;

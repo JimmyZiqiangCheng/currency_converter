@@ -17,6 +17,13 @@
           text-decoration: none;
         }
       }
+      @media (max-width: 750px) {
+        .cards {
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+        }
+      }
     }
     .weather-page {
       position: relative;

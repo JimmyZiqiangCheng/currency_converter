@@ -19,13 +19,13 @@
       box-shadow: 1px 1px 4px 1px colors.$dark-grey;
       &:hover {
         cursor: pointer;
-        color: white;
+        color: colors.$white;
         box-shadow: 2px 2px 12px 3px colors.$dark-grey;
         transform: scale(1.02);
       }
       &:active {
         cursor: pointer;
-        color: white;
+        color: colors.$white;
         box-shadow: 1px 1px 4px 1px colors.$dark-grey;
         transform: scale(1);
       }
@@ -37,12 +37,12 @@
       transition: 0.3s;
       &:hover {
         cursor: pointer;
-        color: white;
+        color: colors.$white;
         box-shadow: 3px 3px 12px 3px black;
       }
       &:active {
         cursor: pointer;
-        color: white;
+        color: colors.$white;
         box-shadow: 0 0 8px 1px black;
       }
     }
@@ -52,12 +52,12 @@
       transition: 0.2s;
       &:hover {
         cursor: pointer;
-        color: white;
+        color: colors.$white;
         box-shadow: 1px 2px 8px 3px colors.$light-grey;
       }
       &:active {
         cursor: pointer;
-        color: white;
+        color: colors.$white;
         box-shadow: 0 0 8px 1px colors.$light-grey;
       }
     }
@@ -79,7 +79,7 @@
     .selector-btn {
       width: 82px;
       padding: 0.25em;
-      color: white;
+      color: colors.$white;
     }
   }
 }
