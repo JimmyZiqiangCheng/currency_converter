@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import { useToggle } from "../../utils/customHooks";
 
 export const ThemeContext = React.createContext();
 function ThemeProvider({ children }) {
-  const [showModal, toggleShowModal] = useState();
-  const [showList, toggleShowList] = useToggle();
-  const [showHeaderMenu, toggleShowHeaderMenu] = useToggle();
-  const [showHamburger, toggleShowHamburger] = useToggle();
+  const [showModal, toggleShowModal] = useState(false);
+  const [showHeaderMenu, toggleShowHeaderMenu] = useState(true);
+  const [showNavList, toggleShowNavList] = useState(false);
   return (
     <ThemeContext.Provider
       value={{
         showModal,
         toggleShowModal,
-        showList,
-        toggleShowList,
         showHeaderMenu,
         toggleShowHeaderMenu,
-        showHamburger,
-        toggleShowHamburger,
+        showNavList,
+        toggleShowNavList,
       }}
     >
       {children}

@@ -109,6 +109,36 @@
           }
         }
       }
+      .navList {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+        display: flex;
+        position: absolute;
+        width: 128px;
+        left: 0px;
+        top: 64px;
+        padding: 0 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        .header-menu {
+          padding: 24px 0;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          list-style: none;
+          font-size: 14px;
+          .menu-item {
+            transition: 0.2s;
+            &:hover {
+              color: white;
+              transform: scale(1.1);
+            }
+            .menu-link {
+              color: colors.$white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
     }
   }
 }

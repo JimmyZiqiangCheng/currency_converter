@@ -21,7 +21,7 @@ export const useLocalStorage = (key, defaultValue) => {
   return [value, setValue];
 };
 
-export const useDebounce = (func, delay) => {
+export const useDebounce = (func, delay = 200) => {
   let myTimeOut;
   const debounce = useCallback((para = null) => {
     clearTimeout(myTimeOut);

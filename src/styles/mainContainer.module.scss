@@ -21,8 +21,13 @@
         .cards {
           flex-direction: column;
           align-items: center;
-          gap: 24px;
+          gap: 36px;
         }
+      }
+    }
+    @media (max-width: 750px) {
+      .home-page {
+        padding-top: 140px;
       }
     }
     .weather-page {
