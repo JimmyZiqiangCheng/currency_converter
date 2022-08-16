@@ -56,7 +56,7 @@ const Login = ({
                   </span>
                 </p>
                 <p className="text">
-                  Forget Your Password?
+                  Forget Your Password?{" "}
                   <span
                     className="click-text"
                     onClick={() => sendPasswordReset(email)}

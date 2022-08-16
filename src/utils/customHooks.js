@@ -37,7 +37,8 @@ export const useNoInitialEffect = (fu, dependancies) => {
   }, dependancies);
 };
 
-export const useOutsideClick = (ref, func) => {
+export const useOutsideClick = (func) => {
+  let ref = useRef();
   const handleClick = (e) => {
     if (ref.current && !ref.current.contains(e.target)) {
       func();
@@ -45,10 +46,11 @@ export const useOutsideClick = (ref, func) => {
   };
 
   useEffect(() => {
-    document.addEventListener("click", handleClick);
+    document.addEventListener("mousedown", handleClick);
 
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.removeEventListener("mousedown", handleClick);
     };
   });
+  return ref;
 };

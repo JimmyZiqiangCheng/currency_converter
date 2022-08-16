@@ -2,7 +2,7 @@
 .modal {
   :global {
     .modal-background {
-      background-color: colors.$light-grey;
+      background-color: rgba(255, 255, 255, 0.5);
       position: absolute;
       top: 0;
       left: 0;
@@ -22,7 +22,7 @@
         width: 320px;
         height: 400px;
         padding: 16px 24px;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.9);
       }
     }
   }

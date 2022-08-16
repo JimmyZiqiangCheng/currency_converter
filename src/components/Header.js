@@ -114,7 +114,7 @@ const Header = () => {
             <Button
               text={"Log In"}
               buttonType={"btn header-btn"}
-              handleClick={() => toggleShowModal(!toggleShowModal)}
+              handleClick={toggleShowModal}
             />
             <Modal title="Log In">
               <Form title={"Welcome"} />
