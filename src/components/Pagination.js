@@ -11,7 +11,7 @@ const Pagination = ({ tilesPerPage, totalTiles, paginate }) => {
   return (
     <div className={styles.pagination}>
       <ul className="page-tiles">
-        {pageNumbers.map((pageNumber) => (
+        {pageNumbers.slice(0, 5).map((pageNumber) => (
           <li className="page-tile" key={pageNumber}>
             <div className="page-link" onClick={() => paginate(pageNumber)}>
               {pageNumber}

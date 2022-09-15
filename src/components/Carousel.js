@@ -24,8 +24,8 @@ const Carousel = ({ content, slidesPerView }) => {
         navigation={true}
       >
         {content &&
-          Object.entries(content).map(([key, value]) => (
-            <SwiperSlide>
+          Object.entries(content).map(([key, value], id) => (
+            <SwiperSlide key={id}>
               <div className="content">
                 <h2 className="title">{key}</h2>
                 <p className="description">

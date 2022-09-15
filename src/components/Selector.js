@@ -5,7 +5,7 @@ import { convert } from "../api/currencyAPI";
 import { CurrencyContext } from "../providers/currencyProvider/CurrencyProvider";
 
 const Selector = () => {
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(1);
   const [to, setTo] = useState("CAD");
   const [from, setFrom] = useState("CAD");
   const currencies = ["CAD", "USD", "GBP", "AUD", "JPY", "CNY"];
