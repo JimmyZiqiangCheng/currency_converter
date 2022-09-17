@@ -31,7 +31,6 @@ export const signIn = async (
     toggleShowModal();
     setIsAuthenticated(true);
     setUser(user);
-    console.log(user);
   } catch (err) {
     switch (err.code) {
       case "auth/invalid-email":

@@ -135,6 +135,12 @@
       }
       .sign-in-section {
         display: flex;
+        align-items: center;
+        .log-in-message {
+          padding-right: 12px;
+          color: colors.$white;
+          font-weight: bold;
+        }
       }
       .sign-out-section {
         color: white;

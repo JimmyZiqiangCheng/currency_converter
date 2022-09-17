@@ -111,6 +111,7 @@ const Header = () => {
           </div>
         ) : (
           <div className="sign-in-section">
+            <p className="log-in-message">please log in first!</p>
             <Button
               text={"Log In"}
               buttonType={"btn header-btn"}

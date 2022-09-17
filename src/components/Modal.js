@@ -9,7 +9,6 @@ function Modal({ children }) {
   const ref = useOutsideClick(() => {
     showModal && toggleShowModal();
   });
-  console.log(showModal);
   const handleClick = () => {
     toggleShowModal();
   };
