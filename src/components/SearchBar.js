@@ -60,7 +60,7 @@ const SearchBar = ({ placeholder }) => {
     <div className={styles.searchBar}>
       <div className="search-input">
         <input
-          type="text"
+          type="search"
           className="input-field"
           placeholder={placeholder}
           value={input}

@@ -8,6 +8,7 @@ import { ThemeContext } from "../providers/themeProvider/ThemeProvider";
 import { AuthContext } from "../providers/authProvider/AuthProvider";
 import { handleSignOut } from "../services/AuthService/AuthService";
 import { useDebounce } from "../utils/customHooks";
+import { useOutsideClick } from "../utils/customHooks";
 
 const Header = () => {
   const {
@@ -26,6 +27,10 @@ const Header = () => {
       : toggleShowHeaderMenu(true);
   };
   const debouncedResize = useDebounce(handleResize, 100);
+
+  const ref = useOutsideClick(() => {
+    showNavList && toggleShowNavList();
+  });
 
   useEffect(() => {
     window.addEventListener("resize", debouncedResize);
@@ -75,7 +80,7 @@ const Header = () => {
           </nav>
         )}
         {showNavList && (
-          <nav className="navList">
+          <nav className="navList" ref={ref}>
             <ul className="header-menu">
               <li className="menu-item">
                 <Link to="/home" className="menu-link">
@@ -111,7 +116,6 @@ const Header = () => {
           </div>
         ) : (
           <div className="sign-in-section">
-            <p className="log-in-message">please log in first!</p>
             <Button
               text={"Log In"}
               buttonType={"btn header-btn"}

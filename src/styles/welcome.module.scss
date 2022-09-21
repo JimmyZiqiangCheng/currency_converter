@@ -1,0 +1,7 @@
+@use "colors";
+.welcome {
+  color: colors.$white;
+  h1 {
+    font-size: 24px;
+  }
+}
