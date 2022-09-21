@@ -24,7 +24,8 @@
         border: 0;
         font-size: 16px;
         color: colors.$dark-grey;
-        padding: 4px;
+        padding: 2px;
+        width: 90%;
         &:focus {
           outline: none;
         }
